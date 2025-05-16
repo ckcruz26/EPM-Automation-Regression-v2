@@ -20,8 +20,8 @@ Add Area of Assignment
     Wait Until Element Is Visible    id=txtAreaAssignmentName    5s
     Input Text    id=txtAreaAssignmentName    ${area_assignment_full}
 
-    Select From List By Value    id=txtAreaAssignmentDiv    2
-    Select From List By Value    id=txtAreaAssignmentUnit    17
+    Select From List By Value    id=txtAreaAssignmentDiv     2
+    Select From List By Label    id=txtAreaAssignmentUnit       GENERAL SERVICES SECTION
     Select From List By Value    id=txtAreaAssignmentOfficeLocation    16
 
     Click Button    xpath=//*[@id="frmAdminAreaAssignmentAdd"]/div[3]/button[2]

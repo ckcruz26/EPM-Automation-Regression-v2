@@ -2,8 +2,9 @@
 Library    SeleniumLibrary
 Resource    ../suite-config-teardown/SuiteConfigTeardown.robot
 
-Suite Setup    Open Browser and Login
-Test Teardown    Close Browser Interaction
+Suite Setup       Open Browser and Login
+Suite Teardown    Close Browser Interaction
+
 
 *** Test Cases ***
 [EPM_REGRESSION_HOME_ST_001]

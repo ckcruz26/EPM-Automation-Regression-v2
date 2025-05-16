@@ -8,6 +8,8 @@ $venvPath = Join-Path $scriptDir "myvenv\Scripts\Activate.ps1"
 $reportDir = Join-Path $scriptDir "report"
 $testDir = Join-Path $scriptDir "test"
 
+# Activate the virtual environment
+& $venvPath
 
 # Run Robot Framework tests with the output directory
 robot --outputdir $reportDir $testDir $args

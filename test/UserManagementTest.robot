@@ -42,7 +42,9 @@ Suite Teardown    Close Browser Interaction
     [Tags]     EPM_REGRESSION_USER_ST_004
     TRY
         Go to User Management Page
-        Add New User
+        FOR     ${i}    IN RANGE    3
+             Add New User
+        END
     EXCEPT    Error
         Fatal Error
     END
@@ -61,6 +63,60 @@ Suite Teardown    Close Browser Interaction
     TRY
         Go to User Management Page
         Update User in Item Code
+    EXCEPT    Error
+        Fatal Error
+    END
+
+[EPM_REGRESSION_USER_ST_007]
+    [Tags]     EPM_REGRESSION_USER_ST_007
+    TRY
+        Go to User Management Page
+        Update User in Item Code Job Vacated
+    EXCEPT    Error
+        Fatal Error
+    END
+
+[EPM_REGRESSION_USER_ST_008]
+    [Tags]     EPM_REGRESSION_USER_ST_008
+    TRY
+        Go to User Management Page
+        Lock Specific User Account
+    EXCEPT    Error
+        Fatal Error
+    END
+
+[EPM_REGRESSION_USER_ST_009]
+    [Tags]     EPM_REGRESSION_USER_ST_009
+    TRY
+        Go to User Management Page
+        Unlock Specific User Account
+    EXCEPT    Error
+        Fatal Error
+    END
+
+[EPM_REGRESSION_USER_ST_010]
+    [Tags]     EPM_REGRESSION_USER_ST_010
+    TRY
+        Go to User Management Page
+        Reset Password Specific User Account
+    EXCEPT    Error
+        Fatal Error
+    END
+
+[EPM_REGRESSION_USER_ST_011]
+    [Tags]     EPM_REGRESSION_USER_ST_011
+    TRY
+        Go to User Management Page
+        Set The User Account To Inactive
+    EXCEPT    Error
+        Fatal Error
+    END
+
+[EPM_REGRESSION_USER_ST_012]
+    [Tags]     EPM_REGRESSION_USER_ST_012
+    TRY
+        Go to User Management Page
+        Re-engage User Account
     EXCEPT    Error
         Fatal Error
     END

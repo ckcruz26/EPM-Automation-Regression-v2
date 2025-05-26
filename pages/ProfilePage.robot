@@ -22,6 +22,7 @@ Verify Password Change Message
     Wait Until Element Is Visible    id:modalDynamicConfirmLogoutMessage
     Element Text Should Be           id:modalDynamicConfirmLogoutMessage    Your password has been successfully updated. Would you like to stay logged in or log out and sign in again with your new password?
     Click Button    id:modalDynamicConfirmLogoutButtonYes
+
 Bank Details Form
     Wait Until Element Is Visible    id:frmBankDetails    10s
     Wait Until Element Is Visible    id:addBankAccount    10s
@@ -43,31 +44,22 @@ Check If Educational Background Tab Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#academic']
 Check If Work Experience Tab is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#career']
-
 Check If Eligbility Tab Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#eligibility']
-
 Check If Voluntary Work Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#voluntaryWork']
-
 Check If Training Tab Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#training']
-
 Check If Special Skills Tab Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#skills']
-
 Check If Non Academic Distinction Tab Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#nonAcademic']
-
 Check If Reference Tab Is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#references']
-
 Check If Government Issued ID Tab is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#GovernID']
-
 Check If Other Information (Part 2) Tab is Active
     Page Should Contain Element    xpath=//li[contains(@class, 'active')]/a[@href='#otherinfo2']
-
 Fill Up Basic Information Form
     Wait Until Element Is Visible    id=AddRegion    10s
     Select From List By Value        id=AddRegion        030000000
@@ -158,6 +150,45 @@ Add Family Background Form
 
     Wait Until Element Is Visible    id:modalDynamicMessage    10s
     Click Button    ID:modalDynamicButton
+
+# Update Family Background
+    # ${xpath_update}=     Set Variable    //*[@id="tblFBMember"]//tr[td[contains(text(), 'Children')]]//button[contains(text(), 'Update')]    
+
+    # ${given_name} =  FakerLibrary.first_name
+    # ${last_name} =  FakerLibrary.last_name
+ 
+
+    # ${bday}=    Date Of Birth    minimum_age=20    maximum_age=30
+    # ${bday_formatted}=    Convert Date    ${bday}    %m/%d/%Y
+
+    # Click Element    xpath=${xpath_update}
+
+    # Sleep    2s
+
+    # Wait Until Element Is Visible    id:updateFBSname   10s
+    # Input Text    id=updateFBSname   ${last_name}
+
+    # Wait Until Element Is Visible    id:updateFBFname   10s
+    # Input Text    id=updateFBFname   ${given_name}
+
+    # Wait Until Element Is Visible    id:updateFBDOB   10s
+    # Input Text    id=updateFBDOB   ${bday_formatted}
+    
+    # # Click Button   id:btnUserFamilyBackgroundUpdate
+    # # Execute Javascript    document.elementFromPoint(53.97, 94).click();
+    # Wait Until Element Is Visible    xpath=//div[@id='updateFB']//button[text()='Save']    2s
+    # Click Button                    xpath=//div[@id='updateFB']//button[text()='Save']
+
+     # # Click Button    xpath=//*[@id="frmUserFamilyBadckgroundUpdate"]/div[3]/button[1]
+    # Wait Until Element Is Visible    id:modalDynamicConfirmButtonYes
+    # Click Button     id:modalDynamicConfirmButtonYes
+
+    # Sleep    10s
+
+    # Wait Until Element Is Visible     id:modalDynamicMessage     10s
+    # Click Button     ID:modalDynamicButton
+
+    # Sleep    10s
 
 Remove Specific Family
     ${xpath}=     Set Variable    //*[@id="tblFBMember"]//tr[td[contains(text(), 'Children')]]//button[contains(text(), 'Remove')]

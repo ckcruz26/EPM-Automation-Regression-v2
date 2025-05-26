@@ -12,6 +12,7 @@ Suite Teardown    Close Browser Interaction
 
 *** Test Cases ***
 [EPM_PROFILE_REGRESSION_ST_001]
+    [Tags]  EPM_PROFILE_REGRESSION_ST_001
     Skip    This test is skipped due to unable to perform automate this operation.
    
 [EPM_PROFILE_REGRESSION_ST_002]
@@ -67,7 +68,16 @@ Suite Teardown    Close Browser Interaction
     END
 
 [EPM_REGRESSION_PROFILE_ST_007]
+    [Tags]    EPM_REGRESSION_PROFILE_ST_007
     Skip    This test is skipped due to unable to perform automate this operation.
+    # TRY
+    #     Go To Profile Page
+    #     Click Element    xpath=/html/body/div[2]/div/section/div/div[2]/div/ul/li[4]/a
+    #     Check If Family Background Tab Is Active
+    #     Update Family Background
+    # EXCEPT   Error
+    #     Fatal Error
+    # END
 
 [EPM_REGRESSION_PROFILE_ST_008]
     [Tags]    EPM_REGRESSION_PROFILE_ST_008

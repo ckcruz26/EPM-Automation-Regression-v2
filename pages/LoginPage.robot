@@ -5,8 +5,13 @@ Library    SeleniumLibrary
 *** Keywords ***
 LoginForm 
     [Arguments]    ${username}     ${password}
+    Wait Until Element Is Visible    id:username    2s
     Input Text    id:username    ${username}
+
+    Wait Until Element Is Visible    id:password    2s
     Input Password    id:password    ${password}
+    
+    Wait Until Element Is Visible    id:btn_submit    2s
     Click Button    id:btn_submit
 
 Verify Successful Message

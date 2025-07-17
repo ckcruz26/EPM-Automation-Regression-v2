@@ -270,7 +270,7 @@ Add Work Experience Form
     ${job}=    FakerLibrary.Job
     
     ${date_from}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(15, 30))).strftime('%d-%m-%Y')    modules=random,datetime
-    ${date_to}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 14))).strftime('%d-%m')    modules=random,datetime
+    ${date_to}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 14))).strftime('%d-%m-%Y')    modules=random,datetime
 
     ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
 

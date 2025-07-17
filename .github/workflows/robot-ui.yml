@@ -42,7 +42,7 @@ jobs:
         robot tests/
 
     - name: Upload Robot Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: robot-report
         path: |

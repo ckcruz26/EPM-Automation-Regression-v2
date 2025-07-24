@@ -206,11 +206,11 @@ Add Educational Background Form
     
     ${yyyy_from}=    Evaluate    random.randint(2010, 2015)    modules=random
     ${yyyy_to}=      Evaluate    ${yyyy_from} + 4
-
     ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
 
     Select From List By Value    id:acadEducLevel    3
-    Select From List By Value    id:acadNameSchool    196
+ 
+    Select From List By Value    id:acadNameSchool   196 
     Select From List By Value    id:acadDegree    32
     Select From List By Value    id:acadPeriodFrom    ${yyyy_from}
     Select From List By Value    id:acadPeriodTo    ${yyyy_to}

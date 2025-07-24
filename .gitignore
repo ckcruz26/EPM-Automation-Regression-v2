@@ -11,6 +11,8 @@ output.xml
 report.html
 log.html
 selenium-screenshot-*.png
+report/
+interactive_console_output.xml
 
 # Distribution / packaging
 .Python

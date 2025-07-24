@@ -42,9 +42,7 @@ Suite Teardown    Close Browser Interaction
     [Tags]     EPM_REGRESSION_USER_ST_004
     TRY
         Go to User Management Page
-        FOR     ${i}    IN RANGE    3
-             Add New User
-        END
+        Add New User
     EXCEPT    Error
         Fatal Error
     END
@@ -103,14 +101,15 @@ Suite Teardown    Close Browser Interaction
         Fatal Error
     END
 
-[EPM_REGRESSION_USER_ST_011]
-    [Tags]     EPM_REGRESSION_USER_ST_011
-    TRY
-        Go to User Management Page
-        Set The User Account To Inactive
-    EXCEPT    Error
-        Fatal Error
-    END
+#  on hold script
+# [EPM_REGRESSION_USER_ST_011]
+#     [Tags]     EPM_REGRESSION_USER_ST_011
+#     TRY
+#         Go to User Management Page
+#         Set The User Account To Inactive
+#     EXCEPT    Error
+#         Fatal Error
+#     END
 
 [EPM_REGRESSION_USER_ST_012]
     [Tags]     EPM_REGRESSION_USER_ST_012

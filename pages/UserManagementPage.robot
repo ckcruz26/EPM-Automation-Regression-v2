@@ -138,7 +138,7 @@ Update User in Item Code
 
 
 Update User in Item Code Job Vacated
-    ${date_from}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(15, 30))).strftime('%d-%m-%Y')    modules=random,datetime
+    ${date_from}=    Evaluate    (datetime.datetime.now() ).strftime('%d-%m-%Y')    modules=random,datetime
 
     Input Text    xpath=//*[@id="userManage_filter"]/label/input    DUMMY LAST
     Sleep    1s

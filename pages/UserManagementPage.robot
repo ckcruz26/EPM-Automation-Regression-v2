@@ -207,7 +207,7 @@ Reset Password Specific User Account
 
 Set The User Account To Inactive
 
-    Input Text    xpath=//*[@id="userManage_filter"]/label/input    DUMMY LAST
+    Input Text    xpath=//*[@id="userManage_filter"]/label/input    RADIO PRODUCER - DUMMY TEST INITIAL III
     Sleep    1s
     
     Wait Until Element Is Visible    xpath=//table[@id='userManage']//tr[td[contains(translate(., 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'DUMMY LAST')]]//button[contains(text(), 'Inactive')]    5s

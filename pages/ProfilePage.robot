@@ -5,6 +5,7 @@ Library    FakerLibrary
 Library    BuiltIn
 Library    random
 Library    DateTime
+Library  OperatingSystem
 
 
 
@@ -206,7 +207,7 @@ Add Educational Background Form
     ${yyyy_from}=    Evaluate    random.randint(2010, 2015)    modules=random
     ${yyyy_to}=      Evaluate    ${yyyy_from} + 4
 
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
 
     Select From List By Value    id:acadEducLevel    3
     Select From List By Value    id:acadNameSchool    196
@@ -216,7 +217,7 @@ Add Educational Background Form
 
     Click Element    id:ifGraduated
     Select From List By Value    id:acadYearGraduated    ${yyyy_to}
-    Choose File    id:acadMOV     ${file_path}
+    Choose File    id:acadMOV     ${resource_dir}
     
     Click Button    xpath=//*[@id="frmUserAcademicAdd"]/div/div[2]/button
 
@@ -233,7 +234,7 @@ Update Educational Background
     ${yyyy_from}=    Evaluate    random.randint(2010, 2015)    modules=random
     ${yyyy_to}=      Evaluate    ${yyyy_from} + 4
 
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+     ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
 
     Click Element    xpath=${xpath_update}
 
@@ -243,7 +244,7 @@ Update Educational Background
     Select From List By Value    id:UpdateacadPeriodTo        ${yyyy_to}
 
     Select From List By Value     id:UpdateacadYearGraduated        ${yyyy_to}
-    Choose File    id:UpdateacadMOV     ${file_path}
+    Choose File    id:UpdateacadMOV     ${resource_dir}
     
     Click Button    xpath=//*[@id="frmUserAcadsUpdate"]/div[2]/div[2]/button[2]
 
@@ -272,7 +273,7 @@ Add Work Experience Form
     ${date_from}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(15, 30))).strftime('%d-%m-%Y')    modules=random,datetime
     ${date_to}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 14))).strftime('%d-%m-%Y')    modules=random,datetime
 
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
 
     Input Text    id:careerDateFrom    ${date_from}
     Input Text    id:careerDateTo   ${date_to}
@@ -281,7 +282,7 @@ Add Work Experience Form
     Input Text    id:careerSalary    20000
     Input Text    id:careerStatusAppointment    REGULAR
     Select From List By Label    id:careerGovt    NO
-    Choose File    id:careerMOV    ${file_path}
+    Choose File    id:careerMOV    ${resource_dir}
 
     Click Button    xpath=//*[@id="frmUserCareerAdd"]/div/div[2]/button
 
@@ -296,10 +297,10 @@ Update Work Experience Form
     ${org_com_faker}=    Set Variable    ${org_name} - DUMMY TEST WORK
     ${job}=    FakerLibrary.Job
     
-    ${date_from}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(15, 30))).strftime('%d-%m-%Y')    modules=random,datetime
-    ${date_to}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 14))).strftime('%d-%m')    modules=random,datetime
+   ${date_from}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(15, 30))).strftime('%d-%m-%Y')    modules=random,datetime
+    ${date_to}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 14))).strftime('%d-%m-%Y')    modules=random,datetime
 
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
 
     ${xpath_update}=     Set Variable    //*[@id="tblcareer"]//tr[td[contains(text(), 'DUMMY TEST WORK')]]//button[contains(text(), 'Update')]    
 
@@ -314,7 +315,7 @@ Update Work Experience Form
     Input Text    id:UpdatecareerSalary    20000
     Input Text    id:UpdatecareerStatusAppointment    REGULAR
     Select From List By Label    id:UpdatecareerGovtService    NO
-    Choose File    id:UpdatecareerMOV    ${file_path}
+    Choose File    id:UpdatecareerMOV    ${resource_dir}
     
     Click Button    xpath=//*[@id="frmUserCareerUpdate"]/div/div[2]/button[2]
 
@@ -341,7 +342,7 @@ Add Eligibility Credentials
     ${past_date_exam}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 30))).strftime('%d-%m-%Y')    modules=random,datetime
     ${exam_place} =    FakerLibrary.City
     ${validity_val}=    Evaluate    (datetime.datetime.now() + datetime.timedelta(days=random.randint(1, 30))).strftime('%d-%m-%Y')    modules=random,datetime
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
 
 
     Wait Until Element Is Visible    id=eligibilityCredentials   10s
@@ -356,7 +357,7 @@ Add Eligibility Credentials
     Input Text    id=eligibilityNumber    1234567890
     Wait Until Element Is Visible   id=eligibilityValidityDate   10s
     Input Text    id=eligibilityValidityDate    ${validity_val}
-    Choose File    id=eligibilityMOV   ${file_path}
+    Choose File    id=eligibilityMOV   ${resource_dir}
     Click Button    xpath=//*[@id="frmUserEligibilitydAdd"]/div/div[2]/button
     
     Wait Until Element Is Visible    id:modalDynamicConfirmButtonYes    10s
@@ -373,8 +374,8 @@ Update Eligibility Credentials
     ${past_date_exam}=    Evaluate    (datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 30))).strftime('%d-%m-%Y')    modules=random,datetime
     ${exam_place} =    FakerLibrary.City
     ${validity_val}=    Evaluate    (datetime.datetime.now() + datetime.timedelta(days=random.randint(1, 30))).strftime('%d-%m-%Y')    modules=random,datetime
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
-    
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
+
     Click Element    xpath=${xpath_update}
 
     Wait Until Element Is Visible    id=UpdateeligibilityRating   10s
@@ -387,7 +388,7 @@ Update Eligibility Credentials
     Input Text    id=UpdateeligibilityNumber    1234567890
     Wait Until Element Is Visible   id=UpdateeligibilityValidityDate   10s
     Input Text    id=UpdateeligibilityValidityDate    ${validity_val}
-    Choose File    id=UpdateEligibilityMOV   ${file_path}
+    Choose File    id=UpdateEligibilityMOV   ${resource_dir}
     Click Button   xpath=//*[@id="frmUserEligibilitydUpdate"]/div[2]/button[2]
 
     Wait Until Element Is Visible    id:modalDynamicConfirmButtonYes    10s
@@ -491,7 +492,8 @@ Add Specific Training Form
     ${first}=    FakerLibrary.First Name
     ${last}=     FakerLibrary.Last Name
     ${full_name}=    Catenate    SEPARATOR=    ${first} ${last}
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
+    
     ${training_name_faker}=    Set Variable    ${training_name} - DUMMY TEST TRAINING
 
     Input Text    id=trainingTitle    ${training_name_faker}
@@ -500,7 +502,7 @@ Add Specific Training Form
     Input Text    id=trainingHours    8
     Select From List By Value   id=trainingType    3
     Input Text    id=trainingConductedBy    ${full_name}
-    Choose File    id=trainingUploadMOV    ${file_path}
+    Choose File    id=trainingUploadMOV    ${resource_dir}
 
     Click Button    xpath=//*[@id="frmUserTrainingAdd"]/div/div[2]/button
 
@@ -518,7 +520,7 @@ Update Specific Training
     ${first}=    FakerLibrary.First Name
     ${last}=     FakerLibrary.Last Name
     ${full_name}=    Catenate    SEPARATOR=    ${first} ${last}
-    ${file_path}=    Set Variable    C:/Users/ckcruz/Downloads/git-cheat-sheet.pdf
+    ${resource_dir} =     Normalize Path     ${CURDIR}/../resource/git-cheat-sheet.pdf
     ${training_name_faker}=    Set Variable    ${training_name} - DUMMY TEST TRAINING
     
     Click Button    ${xpath_update}
@@ -529,7 +531,7 @@ Update Specific Training
     Input Text    id=updatetrainingHours    8
     Select From List By Value   id=updatetrainingType    3
     Input Text    id=updatetrainingConductedBy    ${full_name}
-    Choose File    id=UpdateTrainingMOV    ${file_path}
+    Choose File    id=UpdateTrainingMOV    ${resource_dir}
 
     Click Button    xpath=//*[@id="frmUserTrainingdUpdate"]/div[2]/div[2]/button[2]
 

@@ -1,4 +1,5 @@
 robotframework
 robotframework-faker
+robotframework-screencaplibrary
 robotframework-seleniumlibrary
 selenium

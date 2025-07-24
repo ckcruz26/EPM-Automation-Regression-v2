@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Robot Framework default report files
+output.xml
+report.html
+log.html
+selenium-screenshot-*.png
+
 # Distribution / packaging
 .Python
 build/

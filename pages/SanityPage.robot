@@ -66,3 +66,8 @@ Upload Profile Picture
 
     Wait Until Element Is Visible    id:modalDynamicMessage    10s
     Click Button    id:modalDynamicButton
+
+
+# [START] * E-PDS SANITY TEST CASE 
+
+# [END]*
